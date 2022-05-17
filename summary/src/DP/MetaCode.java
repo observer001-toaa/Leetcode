@@ -12,6 +12,22 @@ public class MetaCode {
     * 5举例推导dp数组
     * */
     @Test
+    public void FullBagTest(){
+        int [] weight={1,3,4};
+        int[]value={15,20,30};
+        int bagWeight=4;
+        int [] dp=new int[bagWeight+1];
+        for (int i = 0; i <weight.length ; i++) {
+            for (int j = weight[i]; j <=bagWeight ; j++) {
+                dp[j]=Math.max(dp[j],dp[j-weight[i]]+value[i]);
+            }
+        }
+        for (int maxValue:dp
+             ) {
+            System.out.println(maxValue+" ");
+        }
+    }
+    @Test
     public void Bag01Test1(){
         //输入
         int[] weight={1,3,4};
